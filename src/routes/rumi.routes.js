@@ -6,7 +6,7 @@ import {
   obtenerRumi,
   actualizarRumi,
   eliminarRumi,
-} from "../controllers/crearRumi.controller.js";
+} from "../controllers/rumi.controller.js";
 const rutasRumi = Router();
 
 rutasRumi.get("/Rumi", authRequerida, obtenerRumis);

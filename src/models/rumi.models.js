@@ -1,9 +1,8 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const rumiEsquema = new mongoose.Schema({
   nombre: {
     type: String,
-    required: true,
     trim: true,
   },
   edad: {
@@ -44,19 +43,24 @@ const rumiEsquema = new mongoose.Schema({
   },
   image1: {
     url: String,
-    public_id: string,
+    public_id: String,
   },
   image2: {
     url: String,
-    public_id: string,
+    public_id: String,
   },
   image3: {
     url: String,
-    public_id: string,
+    public_id: String,
   },
   image4: {
     url: String,
-    public_id: string,
+    public_id: String,
+  },
+  usuario: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Usuario",
+    required: true,
   },
 });
 
