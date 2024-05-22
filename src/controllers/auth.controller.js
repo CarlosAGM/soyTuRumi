@@ -6,6 +6,8 @@ export const registro = async (req, res) => {
   const { usuario, mail, password, institucion } = req.body;
 
   try {
+    const usuarioEncontrado = await Usuario.findOne({ mail });
+    if (usuarioEncontrado) return res.status(400).json(["Email ya existe"]);
     const cifrado = await bcrypt.hash(password, 10);
 
     const nuevoUsuario = new Usuario({
@@ -34,13 +36,11 @@ export const login = async (req, res) => {
 
   try {
     const userEncontrado = await Usuario.findOne({ mail });
-    if (!userEncontrado)
-      return res.status(400).json({ message: "Usuario no encontrado" });
+    if (!userEncontrado) return res.status(400).json(["Usuario no encontrado"]);
 
     const coincide = await bcrypt.compare(password, userEncontrado.password);
 
-    if (!coincide)
-      return res.status(400).json({ message: "Contraseña invalida" });
+    if (!coincide) return res.status(400).json(["Contraseña invalida"]);
 
     const token = await crearAccesoToken({ id: userEncontrado._id });
 

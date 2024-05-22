@@ -15,8 +15,8 @@ export const registroEsquema = z.object({
     .string({
       required_error: "Contraseña Requerida",
     })
-    .min(10, {
-      message: "Tu contraseña debe ser de minimo 10 caracteres",
+    .min(6, {
+      message: "Tu contraseña debe ser de minimo 6 caracteres",
     }),
 });
 
@@ -32,7 +32,7 @@ export const loginEsquema = z.object({
     .string({
       required_error: "Contraseña Requerida",
     })
-    .min(10, {
-      message: "Tu contraseña debe ser de minimo 10 caracteres",
+    .min(6, {
+      message: "Tu contraseña debe ser de minimo 6 caracteres",
     }),
 });
