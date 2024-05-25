@@ -10,8 +10,9 @@ function RegistroPage() {
   } = useForm();
   const { signup, esAutenticado, errors: registroError } = useAuth();
   const navegar = useNavigate();
+
   useEffect(() => {
-    if (esAutenticado) navegar("/login");
+    if (esAutenticado) navegar("/rumis");
   }, [esAutenticado]);
 
   const alEnviar = handleSubmit(async (values) => {
@@ -26,7 +27,7 @@ function RegistroPage() {
             {error}
           </div>
         ))}
-        <h1 className="test-2xl font-bold text-center">Crea tu cuenta</h1>
+        <h1 className="text-2xl font-bold text-center">Crea tu cuenta</h1>
         <form onSubmit={alEnviar}>
           <input
             type="text"

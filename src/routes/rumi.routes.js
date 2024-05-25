@@ -9,10 +9,10 @@ import {
 } from "../controllers/rumi.controller.js";
 const rutasRumi = Router();
 
-rutasRumi.get("/Rumi", authRequerida, obtenerRumis);
-rutasRumi.get("/Rumi/:id", authRequerida, obtenerRumi);
-rutasRumi.post("/Rumi", authRequerida, crearRumi);
-rutasRumi.delete("/Rumi/:id", authRequerida, eliminarRumi);
-rutasRumi.put("/Rumi/:id", authRequerida, actualizarRumi);
+rutasRumi.get("/Rumis", authRequerida, obtenerRumis);
+rutasRumi.get("/Rumis/:id", authRequerida, obtenerRumi);
+rutasRumi.post("/Rumis", authRequerida, crearRumi);
+rutasRumi.delete("/Rumis/:id", authRequerida, eliminarRumi);
+rutasRumi.put("/Rumis/:id", authRequerida, actualizarRumi);
 
 export default rutasRumi;

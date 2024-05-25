@@ -1,16 +1,22 @@
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/authContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 function LoginPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signin, errors: signinErrors } = useAuth();
+  const { signin, errors: signinErrors, esAutenticado } = useAuth();
+  const navegar = useNavigate();
   const alEnviar = handleSubmit((data) => {
     signin(data);
   });
+
+  useEffect(() => {
+    if (esAutenticado) navegar("/rumis");
+  }, [esAutenticado]);
 
   return (
     <div className="flex h-[calc(100vh-100px)] items-center justify-center">
@@ -20,7 +26,7 @@ function LoginPage() {
             {error}
           </div>
         ))}
-        <h1 className="test-2xl font-bold text-center">Inicio de Sesión</h1>
+        <h1 className="text-2xl font-bold text-center">Inicio de Sesión</h1>
         <form onSubmit={alEnviar}>
           <input
             type="email"

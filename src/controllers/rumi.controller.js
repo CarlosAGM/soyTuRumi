@@ -22,8 +22,6 @@ export const crearRumi = async (req, res) => {
     image4,
   } = req.body;
 
-  console.log(req.user);
-
   const nuevoRumi = new Rumi({
     nombre,
     edad,

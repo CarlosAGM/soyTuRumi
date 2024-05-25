@@ -24,11 +24,10 @@ export const AuthProvider = ({ children }) => {
   const signup = async (user) => {
     try {
       const res = await registroRequest(user);
-      console.log(res.data);
+
       setUser(res.data);
       setEsAutenticado(true);
     } catch (error) {
-      console.log(error.response);
       setErrors(error.response.data);
     }
   };
@@ -36,7 +35,7 @@ export const AuthProvider = ({ children }) => {
   const signin = async (user) => {
     try {
       const res = await loginRequest(user);
-      console.log(res);
+
       setEsAutenticado(true);
       setUser(res.data);
     } catch (error) {
@@ -45,6 +44,12 @@ export const AuthProvider = ({ children }) => {
       }
       setErrors([error.response.data.message]);
     }
+  };
+
+  const logout = () => {
+    Cookies.remove("token");
+    setEsAutenticado(false);
+    setUser(null);
   };
 
   useEffect(() => {
@@ -67,7 +72,7 @@ export const AuthProvider = ({ children }) => {
       }
       try {
         const res = await verificarTokenRequest(cookies.token);
-        console.log(res);
+
         if (!res.data) {
           setEsAutenticado(false);
           setLoading(false);
@@ -78,7 +83,6 @@ export const AuthProvider = ({ children }) => {
         setUser(res.data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
         setEsAutenticado(false);
         setUser(null);
         setLoading(false);
@@ -89,7 +93,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ signup, signin, loading, user, esAutenticado, errors }}
+      value={{ signup, signin, logout, loading, user, esAutenticado, errors }}
     >
       {children}
     </AuthContext.Provider>
