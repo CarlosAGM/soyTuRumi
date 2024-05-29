@@ -1,41 +1,31 @@
 import Rumi from "../models/rumi.models.js";
 
 export const obtenerRumis = async (req, res) => {
-  const rumis = await Rumi.find();
+  const rumis = await Rumi.find().populate("usuario", "nombre apellido email");
   res.json(rumis);
 };
 
 export const crearRumi = async (req, res) => {
   const {
-    nombre,
     edad,
     genero,
-    institucion,
     mascotas,
     hijos,
     arriendo,
     ubicacion,
     celular,
-    image1,
-    image2,
-    image3,
-    image4,
+    imagen,
   } = req.body;
 
   const nuevoRumi = new Rumi({
-    nombre,
     edad,
     genero,
-    institucion,
     mascotas,
     hijos,
     arriendo,
     ubicacion,
     celular,
-    image1,
-    image2,
-    image3,
-    image4,
+    imagen,
     usuario: req.user.id,
   });
   const guardarRumi = await nuevoRumi.save();

@@ -12,9 +12,14 @@ function CrearRumisPages() {
     async function cargaRumi() {
       if (params.id) {
         const rumi = await obtenerRumi(params.id);
-
-        setValue("nombre", rumi.nombre);
         setValue("edad", rumi.edad);
+        setValue("genero", rumi.genero);
+        setValue("mascotas", rumi.mascotas);
+        setValue("hijos", rumi.hijos);
+        setValue("arriendo", rumi.arriendo);
+        setValue("ubicacion", rumi.ubicacion);
+        setValue("celular", rumi.celular);
+        setValue("imagen", rumi.imagen);
       }
     }
     cargaRumi();
@@ -34,13 +39,6 @@ function CrearRumisPages() {
       <form onSubmit={alEnviar}>
         <input
           type="text"
-          placeholder="Nombre"
-          {...register("nombre")}
-          autoFocus
-          className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-        />
-        <input
-          type="text"
           placeholder="Edad"
           {...register("edad")}
           className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
@@ -49,12 +47,6 @@ function CrearRumisPages() {
           type="text"
           placeholder="Genero"
           {...register("genero")}
-          className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-        />
-        <input
-          type="text"
-          placeholder="Institución"
-          {...register("institucion")}
           className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
         />
         <input
@@ -96,27 +88,10 @@ function CrearRumisPages() {
         <input
           type="text"
           placeholder="Img 1"
-          {...register("image1")}
+          {...register("imagen")}
           className="w-full bg-zinc-700 text-white px-4 py-2 rounded- my-2"
         />
-        <input
-          type="text"
-          placeholder="Img 2"
-          {...register("image2")}
-          className="w-full bg-zinc-700 text-white px-4 py-2 rounded- my-2"
-        />
-        <input
-          type="text"
-          placeholder="Img 3"
-          {...register("image3")}
-          className="w-full bg-zinc-700 text-white px-4 py-2 rounded- my-2"
-        />
-        <input
-          type="text"
-          placeholder="Img 4"
-          {...register("image4")}
-          className="w-full bg-zinc-700 text-white px-4 py-2 rounded- my-2"
-        />
+
         <button>Publicar</button>
       </form>
     </div>

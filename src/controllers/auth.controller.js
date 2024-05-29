@@ -5,16 +5,17 @@ import jwt from "jsonwebtoken";
 import { TOKEN_SECRETO } from "../config.js";
 
 export const registro = async (req, res) => {
-  const { usuario, mail, password, institucion } = req.body;
+  const { nombre, apellido, email, password, institucion } = req.body;
 
   try {
-    const usuarioEncontrado = await Usuario.findOne({ mail });
+    const usuarioEncontrado = await Usuario.findOne({ email });
     if (usuarioEncontrado) return res.status(400).json(["Email ya existe"]);
     const cifrado = await bcrypt.hash(password, 10);
 
     const nuevoUsuario = new Usuario({
-      usuario,
-      mail,
+      nombre,
+      apellido,
+      email,
       password: cifrado,
       institucion,
     });
@@ -24,8 +25,9 @@ export const registro = async (req, res) => {
     res.cookie("token", token);
     res.json({
       id: usuarioGuardado._id,
-      usuario: usuarioGuardado.usuario,
-      mail: usuarioGuardado.mail,
+      nombre: usuarioGuardado.nombre,
+      apellido: usuarioGuardado.apellido,
+      email: usuarioGuardado.email,
       institucion: usuarioGuardado.institucion,
     });
   } catch (error) {
@@ -34,10 +36,10 @@ export const registro = async (req, res) => {
 };
 
 export const login = async (req, res) => {
-  const { mail, password } = req.body;
+  const { email, password } = req.body;
 
   try {
-    const userEncontrado = await Usuario.findOne({ mail });
+    const userEncontrado = await Usuario.findOne({ email });
     if (!userEncontrado)
       return res.status(400).json({ message: "Usuario no encontrado" });
 
@@ -55,8 +57,9 @@ export const login = async (req, res) => {
     });
     res.json({
       id: userEncontrado._id,
-      usuario: userEncontrado.usuario,
-      mail: userEncontrado.mail,
+      nombre: userEncontrado.nombre,
+      apellido: userEncontrado.apellido,
+      email: userEncontrado.email,
       institucion: userEncontrado.institucion,
     });
   } catch (error) {
@@ -77,8 +80,9 @@ export const perfil = async (req, res) => {
     return res.status(400).json({ message: "Usuario no encontrado" });
   return res.json({
     id: userEncontrado._id,
-    usuario: userEncontrado.usuario,
-    mail: userEncontrado.mail,
+    nombre: userEncontrado.nombre,
+    apellido: userEncontrado.apellido,
+    email: userEncontrado.email,
     institucion: userEncontrado.institucion,
   });
 };
@@ -94,8 +98,9 @@ export const verificarToken = async (req, res) => {
 
     return res.json({
       id: userEncontrado._id,
-      usuario: userEncontrado.usuario,
-      mail: userEncontrado.mail,
+      nombre: userEncontrado.nombre,
+      apellido: userEncontrado.apellido,
+      email: userEncontrado.email,
     });
   });
 };

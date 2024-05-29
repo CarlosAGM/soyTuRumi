@@ -31,19 +31,29 @@ function RegistroPage() {
         <form onSubmit={alEnviar}>
           <input
             type="text"
-            {...register("usuario", { required: true })}
+            {...register("nombre", { required: true })}
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-            placeholder="Usuario"
+            placeholder="Nombre"
           />
-          {errors.usuario && <p className="text-red-500">Usuario requerido</p>}
+          {errors.nombre && <p className="text-red-500">Nombre requerido</p>}
+
+          <input
+            type="text"
+            {...register("apellido", { required: true })}
+            className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+            placeholder="Apellido"
+          />
+          {errors.apellido && (
+            <p className="text-red-500">Apellido requerido</p>
+          )}
 
           <input
             type="email"
-            {...register("mail", { required: true })}
+            {...register("email", { required: true })}
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
             placeholder="Email"
           />
-          {errors.mail && <p className="text-red-500">Email requerido</p>}
+          {errors.email && <p className="text-red-500">Email requerido</p>}
 
           <input
             type="password"

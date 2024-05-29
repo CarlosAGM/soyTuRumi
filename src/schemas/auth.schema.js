@@ -1,12 +1,15 @@
 import { z } from "zod";
 
 export const registroEsquema = z.object({
-  usuario: z.string({
-    required_error: "Usuario Requerido",
+  nombre: z.string({
+    required_error: "Nombre Requerido",
   }),
-  mail: z
+  apellido: z.string({
+    required_error: "Apellido Requerido",
+  }),
+  email: z
     .string({
-      required_error: "Usuario Requerido",
+      required_error: "Email Requerido",
     })
     .email({
       message: "Email Invalido",
@@ -21,9 +24,9 @@ export const registroEsquema = z.object({
 });
 
 export const loginEsquema = z.object({
-  mail: z
+  email: z
     .string({
-      required_error: "Usuario Requerido",
+      required_error: "Email Requerido",
     })
     .email({
       message: "Email Invalido",
