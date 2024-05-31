@@ -17,20 +17,20 @@ function Navbar() {
     },
     {
       name: "Quienes Somos",
-      link: "/",
+      link: "#somos",
       estilo: "text-gray-800 hover:text-gray-400 duration-500",
     },
     {
       name: "Iniciar Sesión",
       link: "/login",
       estilo:
-        "bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 duration-500",
+        "md:text-verdeOriginal font-[Poppins] md:py-2 md:px-6 md:rounded md:ml-8 duration-500 hover:text-green-400",
     },
     {
       name: "Regístrate",
       link: "/registro",
       estilo:
-        "bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 duration-500",
+        "md:border-4 md:border-verdeOriginal text-verdeOriginal font-[Poppins] md:py-2 md:px-6 md:rounded md:ml-8 duration-500 hover:text-green-400",
     },
   ];
   let LinksConAuth = [
@@ -46,7 +46,7 @@ function Navbar() {
     },
     {
       name: "Quienes Somos",
-      link: "/",
+      link: "#somos",
       estilo: "text-gray-800 hover:text-gray-400 duration-500",
     },
     {
@@ -60,15 +60,17 @@ function Navbar() {
   let [open, setOpen] = useState(false);
 
   return (
-    <nav className="shadow-md w-full fixed top-0 left-0">
-      <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
-        <div
-          className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
+    <nav className="shadow-md w-full top-0 left-0">
+      <div className="h-20 md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
+        <Link to="/">
+          <div
+            className="font-bold text-2xl flex items-center font-[Poppins] 
       text-verdeOriginal"
-        >
-          <img src={logoNav} width={40} />
-          Soy tu Rumi
-        </div>
+          >
+            <img src={logoNav} width={40} />
+            Soy tu Rumi
+          </div>
+        </Link>
 
         <div
           onClick={() => setOpen(!open)}
@@ -76,6 +78,7 @@ function Navbar() {
         >
           <ion-icon name={open ? "close" : "menu"}></ion-icon>
         </div>
+
         {!esAutenticado ? (
           <ul
             className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
@@ -115,52 +118,6 @@ function Navbar() {
         )}
       </div>
     </nav>
-
-    // <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
-    //   <h1 className="text-2xl font-bold">
-    //     <Link to={esAutenticado ? "/rumis" : "/"}>Rumi</Link>
-    //   </h1>
-    //   <ul className="flex gap-x-2">
-    //     {esAutenticado ? (
-    //       <>
-    //         <li className="text-2xl font-bold">Bienvenido {user.nombre}</li>
-    //         <li>
-    //           <Link
-    //             className="bg-green-500 px-4 py-1 rounded-md"
-    //             to="/crearRumi"
-    //           >
-    //             Haz tu Rumi
-    //           </Link>
-    //         </li>
-    //         <li>
-    //           <Link
-    //             className="bg-red-500 px-4 py-1 rounded-md"
-    //             to="/"
-    //             onClick={() => logout()}
-    //           >
-    //             Logout
-    //           </Link>
-    //         </li>
-    //       </>
-    //     ) : (
-    //       <>
-    //         <li>
-    //           <Link className="bg-indigo-500 px-4 py-1 rounded-md" to="/login">
-    //             Login
-    //           </Link>
-    //         </li>
-    //         <li>
-    //           <Link
-    //             className="bg-indigo-500 px-4 py-1 rounded-md"
-    //             to="/registro"
-    //           >
-    //             Registro
-    //           </Link>
-    //         </li>
-    //       </>
-    //     )}
-    //   </ul>
-    // </nav>
   );
 }
 

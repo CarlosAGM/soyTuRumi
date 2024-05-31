@@ -11,13 +11,14 @@ import CrearRumisPages from "./pages/CrearRumisPages";
 import PerfilPage from "./pages/PerfilPage";
 import ProtectorRutas from "./ProtectorRutas";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <AuthProvider>
       <RumiProvider>
         <BrowserRouter>
-          <main className="container mx-auto px-10">
+          <main className="h-screen">
             <Navbar />
             <Routes>
               <Route path="/" element={<PaginaPrincipalPage />} />
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/perfil" element={<PerfilPage />} />
               </Route>
             </Routes>
+            <Footer />
           </main>
         </BrowserRouter>
       </RumiProvider>

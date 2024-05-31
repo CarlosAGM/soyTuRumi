@@ -20,8 +20,8 @@ function RegistroPage() {
   });
 
   return (
-    <div className="flex h-[calc(100vh-100px)] items-center justify-center">
-      <div className="bg-zinc-800 max-w-md p-10 rounded-md">
+    <div className="m-auto flex h-[calc(100vh-100px)] items-center justify-center">
+      <div className="bg-verdeOriginal max-w-md p-10 rounded-md">
         {registroError.map((error, i) => (
           <div className="text-red-500" key={i}>
             {error}
