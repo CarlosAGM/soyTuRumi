@@ -14,7 +14,11 @@ function CardRumiSmall() {
         <div className="m-3">
           <h1 className="text-[20px] font-bold">Soy Paula</h1>
           <div className="flex gap-2 mt-2 items-center">
-            <ion-icon name="location" size="small"></ion-icon>
+            <ion-icon
+              name="location"
+              size="small"
+              className="relative"
+            ></ion-icon>
             <div>Valparaiso, Chile</div>
           </div>
           <div className="flex gap-2 mt-2 items-center">

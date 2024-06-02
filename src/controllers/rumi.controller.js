@@ -12,8 +12,10 @@ export const crearRumi = async (req, res) => {
     mascotas,
     hijos,
     arriendo,
+    region,
     ubicacion,
     celular,
+    infoExtra,
     imagen,
   } = req.body;
 
@@ -23,8 +25,10 @@ export const crearRumi = async (req, res) => {
     mascotas,
     hijos,
     arriendo,
+    region,
     ubicacion,
     celular,
+    infoExtra,
     imagen,
     usuario: req.user.id,
   });

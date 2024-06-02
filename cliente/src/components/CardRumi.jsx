@@ -17,54 +17,50 @@ function CardRumi({ rumi }) {
 
   return (
     <div className="bg-zinc-100 max-w-md w-full p-10 rounded-md">
-      <header className="flex justify-between">
+      <header className="flex w-full justify-between">
         <div className="flex">
           <h1 className="text-2xl font-bold pr-2">{rumi.usuario.nombre}</h1>
           <h1 className="text-2xl font-bold pr-2">{rumi.usuario.apellido}</h1>
         </div>
         {autor ? (
-          <>
-            <div className="relative inline-block text-right">
-              <div
-                onClick={toggleMenu}
-                className="text-3xl cursor-pointer h-15"
-              >
-                <ion-icon
-                  name={isMenuOpen ? "close" : "settings-outline"}
-                ></ion-icon>
-              </div>
-              {isMenuOpen && (
-                <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                  <div className="py-1">
-                    <Link
-                      to={`/rumis/${rumi._id}`}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                    >
-                      Editar
-                    </Link>
-                    <button
-                      onClick={() => eliminarRumi(rumi._id)}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                    >
-                      Eliminar
-                    </button>
-                  </div>
-                </div>
-              )}
+          <div className="relative inline-block text-right">
+            <div onClick={toggleMenu} className="text-3xl cursor-pointer h-15">
+              <ion-icon
+                name={isMenuOpen ? "close" : "settings-outline"}
+              ></ion-icon>
             </div>
-          </>
+            {isMenuOpen && (
+              <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                <div className="py-1">
+                  <Link
+                    to={`/rumis/${rumi._id}`}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-500 w-full text-center"
+                  >
+                    Editar
+                  </Link>
+                  <button
+                    onClick={() => eliminarRumi(rumi._id)}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-red-500 w-full text-center"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         ) : (
           <></>
         )}
-        <div></div>
       </header>
       <p className="text-black">{rumi.edad}</p>
       <p className="text-black">{rumi.genero}</p>
       <p className="text-black">{rumi.mascotas}</p>
       <p className="text-black">{rumi.hijos}</p>
       <p className="text-black">{rumi.arriendo}</p>
+      <p className="text-black">{rumi.region}</p>
       <p className="text-black">{rumi.ubicacion}</p>
       <p className="text-black">{rumi.celular}</p>
+      <p className="text-black">{rumi.infoExtra}</p>
       <p className="text-black">{rumi.imagen}</p>
     </div>
   );

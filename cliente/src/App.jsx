@@ -18,8 +18,8 @@ function App() {
     <AuthProvider>
       <RumiProvider>
         <BrowserRouter>
-          <main className="h-screen">
-            <Navbar />
+          <Navbar />
+          <main className="h-full">
             <Routes>
               <Route path="/" element={<PaginaPrincipalPage />} />
               <Route path="/login" element={<LoginPage />} />
@@ -31,8 +31,8 @@ function App() {
                 <Route path="/perfil" element={<PerfilPage />} />
               </Route>
             </Routes>
-            <Footer />
           </main>
+          <Footer />
         </BrowserRouter>
       </RumiProvider>
     </AuthProvider>

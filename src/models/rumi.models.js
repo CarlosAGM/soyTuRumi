@@ -21,6 +21,10 @@ const rumiEsquema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  region: {
+    type: String,
+    trim: true,
+  },
   ubicacion: {
     type: String,
     trim: true,
@@ -34,8 +38,8 @@ const rumiEsquema = new mongoose.Schema({
     trim: true,
   },
   imagen: {
-    url: String,
-    public_id: String,
+    type: String,
+    trim: true,
   },
 
   usuario: {

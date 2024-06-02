@@ -2,9 +2,13 @@ import React from "react";
 import logoCFT from "../assets/logoCFT.png";
 function Footer() {
   return (
-    <footer className="h-[300px] w-full">
-      <div className="flex justify-around m-14">
-        <img src={logoCFT} alt="logoCFT" className="h-[200px]" />
+    <footer className="md:h-[300px] w-full">
+      <div className="flex flex-col md:flex-row md:justify-around items-center m-14">
+        <img
+          src={logoCFT}
+          alt="logoCFT"
+          className="md:w-1/4 md:object-contain w-[300px]"
+        />
         <div className="flex flex-col gap-3">
           <a href="/" className="text-4xl">
             Inicio

@@ -60,9 +60,9 @@ function Navbar() {
   let [open, setOpen] = useState(false);
 
   return (
-    <nav className="shadow-md w-full top-0 left-0">
-      <div className="h-20 md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
-        <Link to="/">
+    <nav className="shadow-md w-full sticky z-50 top-0 left-0">
+      <div className="h-20 md:flex justify-between bg-white py-4 md:px-10 px-7">
+        <Link to="/" className="w-2/6">
           <div
             className="font-bold text-2xl flex items-center font-[Poppins] 
       text-verdeOriginal"
