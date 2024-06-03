@@ -132,6 +132,12 @@ function CrearRumisPages() {
             {...register("imagen")}
             className="w-full border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md my-2"
           />
+          <input
+            type="file"
+            name="image"
+            className="w-full border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md my-2"
+            onChange={(e) => setFieldValue("imagen", e.target.files[0])}
+          />
 
           <button
             type="submit"

@@ -38,8 +38,8 @@ const rumiEsquema = new mongoose.Schema({
     trim: true,
   },
   imagen: {
-    type: String,
-    trim: true,
+    public_id: String,
+    url: String,
   },
 
   usuario: {
