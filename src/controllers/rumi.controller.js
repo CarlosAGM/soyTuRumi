@@ -3,8 +3,16 @@ import Rumi from "../models/rumi.models.js";
 import fs from "fs-extra";
 
 export const obtenerRumis = async (req, res) => {
-  const rumis = await Rumi.find().populate("usuario", "nombre apellido email");
-  res.json(rumis);
+  try {
+    const rumis = await Rumi.find({}).populate(
+      "usuario",
+      "nombre apellido email"
+    );
+
+    res.json(rumis);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 };
 
 export const crearRumi = async (req, res) => {

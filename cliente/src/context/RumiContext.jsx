@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import {
   crearRumiRequest,
   obtenerRumisRequest,
@@ -23,6 +23,7 @@ export function RumiProvider({ children }) {
     const res = await obtenerRumisRequest();
     setRumis(res.data);
   };
+
   const crearRumi = async (nuevoRumi) => {
     const res = await crearRumiRequest(nuevoRumi);
   };

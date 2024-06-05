@@ -17,6 +17,7 @@ function CardRumi({ rumi }) {
 
   return (
     <div className="bg-zinc-100 max-w-md w-full p-10 rounded-md">
+      {rumi.imagen && <img src={rumi.imagen.url} alt="" />}
       <header className="flex w-full justify-between">
         <div className="flex">
           <h1 className="text-2xl font-bold pr-2">{rumi.usuario.nombre}</h1>
@@ -52,8 +53,8 @@ function CardRumi({ rumi }) {
           <></>
         )}
       </header>
-      <p className="text-black">{rumi.edad}</p>
-      <p className="text-black">{rumi.genero}</p>
+      <p className="text-black">{JSON.stringify(rumi.edad)}</p>
+      {/* <p className="text-black">{rumi.genero}</p>
       <p className="text-black">{rumi.mascotas}</p>
       <p className="text-black">{rumi.hijos}</p>
       <p className="text-black">{rumi.arriendo}</p>
@@ -61,7 +62,7 @@ function CardRumi({ rumi }) {
       <p className="text-black">{rumi.ubicacion}</p>
       <p className="text-black">{rumi.celular}</p>
       <p className="text-black">{rumi.infoExtra}</p>
-      <p className="text-black">{rumi.imagen}</p>
+      <p className="text-black">{rumi.imagen}</p> */}
     </div>
   );
 }

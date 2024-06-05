@@ -1,11 +1,15 @@
 import { useForm } from "react-hook-form";
 import { useRumis } from "../context/RumiContext";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import logoColor from "../assets/logoColor.png";
+
+import { Formik } from "formik";
+
 function CrearRumisPages() {
   const { register, handleSubmit, setValue } = useForm();
   const { crearRumi, obtenerRumi, actualizarRumi } = useRumis();
+
   const navegar = useNavigate();
   const params = useParams();
 
@@ -28,10 +32,18 @@ function CrearRumisPages() {
     cargaRumi();
   }, []);
 
+  const [selectSubirImagen, setSelectedImagen] = useState(null);
+
+  const handleSubirImagen = (e) => {
+    setSelectedImagen(e.target.files[0]);
+  };
+
   const alEnviar = handleSubmit((data) => {
+    console.log(data);
     if (params.id) {
       actualizarRumi(params.id, data);
     } else {
+      console.log(data);
       crearRumi(data);
     }
     navegar("/");
@@ -46,6 +58,7 @@ function CrearRumisPages() {
         <h1 className="text-2xl text-verdeOriginal font-bold text-center">
           Crea tu Rumi
         </h1>
+
         <form
           onSubmit={alEnviar}
           className="flex flex-col items-center justify-center"
@@ -58,9 +71,10 @@ function CrearRumisPages() {
           />
           <select
             {...register("genero")}
+            defaultValue={"defecto"}
             className="border-4 border-verdeOriginal p-2 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-verdeOriginal"
           >
-            <option selected="true" disabled>
+            <option value="defecto" disabled>
               Genero
             </option>
             <option value="Masculino">Masculino</option>
@@ -87,9 +101,10 @@ function CrearRumisPages() {
           />
           <select
             {...register("region")}
+            defaultValue={"region"}
             className="border-4 border-verdeOriginal p-2 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-verdeOriginal"
           >
-            <option selected="true" disabled>
+            <option value="region" disabled>
               Seleccione región
             </option>
             <option value="Arica y Parinacota">XV. Arica y Parinacota</option>
@@ -126,17 +141,17 @@ function CrearRumisPages() {
             {...register("infoExtra")}
             className="w-full border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md my-2"
           />
-          <input
+          {/* <input
             type="text"
             placeholder="Img 1"
             {...register("imagen")}
             className="w-full border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md my-2"
-          />
+          /> */}
           <input
             type="file"
-            name="image"
+            // {...register("imagen")}
             className="w-full border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md my-2"
-            onChange={(e) => setFieldValue("imagen", e.target.files[0])}
+            onChange={(e) => setValue("imagen", e.target.files[0])}
           />
 
           <button
