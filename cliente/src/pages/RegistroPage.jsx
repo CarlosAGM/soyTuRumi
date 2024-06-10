@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
-import { useAuth } from "../context/authContext";
 import { useEffect } from "react";
+import { useAuth } from "../context/authContext";
 import { useNavigate, Link } from "react-router-dom";
 import grupStudent from "../assets/grupStudent.png";
 function RegistroPage() {

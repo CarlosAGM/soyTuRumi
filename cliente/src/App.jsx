@@ -28,7 +28,7 @@ function App() {
                 <Route path="/Rumis" element={<RumisPage />} />
                 <Route path="/crearRumi" element={<CrearRumisPages />} />
                 <Route path="/Rumis/:id" element={<CrearRumisPages />} />
-                <Route path="/perfil" element={<PerfilPage />} />
+                <Route path="/perfil/:id" element={<PerfilPage />} />
               </Route>
             </Routes>
           </main>

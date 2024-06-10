@@ -4,6 +4,7 @@ import { useAuth } from "../context/authContext";
 import logoNav from "../assets/logoColor.png";
 function Navbar() {
   const { esAutenticado, logout, user } = useAuth();
+
   let LinksSinAuth = [
     {
       name: "Inicio",
@@ -107,6 +108,12 @@ function Navbar() {
               </li>
             ))}
 
+            <Link
+              className="bg-blue-600 text-white w-16 h-16 rounded-full md:ml-8 hover:bg-blue-400 flex items-center justify-center"
+              to={`/perfil/${user.id}`}
+            >
+              <ion-icon name="person-outline" size="large"></ion-icon>
+            </Link>
             <Link
               className="bg-red-600 text-white w-16 h-16 rounded md:ml-8 hover:bg-red-400 flex items-center justify-center"
               to="/"

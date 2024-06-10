@@ -1,10 +1,8 @@
 import { useForm } from "react-hook-form";
-import { useRumis } from "../context/RumiContext";
-import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useRumis } from "../context/RumiContext";
 import logoColor from "../assets/logoColor.png";
-
-import { Formik } from "formik";
 
 function CrearRumisPages() {
   const { register, handleSubmit, setValue } = useForm();

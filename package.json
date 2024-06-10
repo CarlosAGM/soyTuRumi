@@ -7,7 +7,7 @@
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Carlos Aguero - Maximiliano Valdebenito",
   "license": "ISC",
   "description": "",
   "dependencies": {

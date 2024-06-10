@@ -3,6 +3,9 @@ import {
   registroRequest,
   loginRequest,
   verificarTokenRequest,
+  actualizarUserRequest,
+  borrarUserRequest,
+  obtenerUserRequest,
 } from "../api/auth";
 import Cookies from "js-cookie";
 
@@ -92,9 +95,46 @@ export const AuthProvider = ({ children }) => {
     checkLogin();
   }, []);
 
+  const actualizarUser = async (id, user) => {
+    try {
+      await actualizarUserRequest(id, user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const borrarUser = async (id) => {
+    try {
+      const res = await borrarUserRequest(id);
+      if (res.status === 204) setUser(user.filter((user) => user._id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const obtenerUser = async (id) => {
+    try {
+      const res = await obtenerUserRequest(id);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <AuthContext.Provider
-      value={{ signup, signin, logout, loading, user, esAutenticado, errors }}
+      value={{
+        signup,
+        signin,
+        logout,
+        actualizarUser,
+        borrarUser,
+        obtenerUser,
+        loading,
+        user,
+        esAutenticado,
+        errors,
+      }}
     >
       {children}
     </AuthContext.Provider>

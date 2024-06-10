@@ -54,15 +54,13 @@ function CardRumi({ rumi }) {
         )}
       </header>
       <p className="text-black">{JSON.stringify(rumi.edad)}</p>
-      {/* <p className="text-black">{rumi.genero}</p>
-      <p className="text-black">{rumi.mascotas}</p>
-      <p className="text-black">{rumi.hijos}</p>
-      <p className="text-black">{rumi.arriendo}</p>
-      <p className="text-black">{rumi.region}</p>
-      <p className="text-black">{rumi.ubicacion}</p>
-      <p className="text-black">{rumi.celular}</p>
-      <p className="text-black">{rumi.infoExtra}</p>
-      <p className="text-black">{rumi.imagen}</p> */}
+      <p className="text-black">{JSON.stringify(rumi.mascotas)}</p>
+      <p className="text-black">{JSON.stringify(rumi.hijos)}</p>
+      <p className="text-black">{JSON.stringify(rumi.arriendo)}</p>
+      <p className="text-black">{JSON.stringify(rumi.region)}</p>
+      <p className="text-black">{JSON.stringify(rumi.ubicacion)}</p>
+      <p className="text-black">{JSON.stringify(rumi.celular)}</p>
+      <p className="text-black">{JSON.stringify(rumi.infoExtra)}</p>
     </div>
   );
 }

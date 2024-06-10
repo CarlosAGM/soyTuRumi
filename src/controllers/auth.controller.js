@@ -104,3 +104,29 @@ export const verificarToken = async (req, res) => {
     });
   });
 };
+
+export const actualizarUser = async (req, res) => {
+  try {
+    const actualizarUser = await Rumi.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      }
+    );
+    return res.json(actualizarUser);
+  } catch (error) {
+    return res.status(404).json({ message: "Usuario no encontrado" });
+  }
+};
+
+export const eliminarUser = async (req, res) => {
+  try {
+    const eliminarUser = await Rumi.findByIdAndDelete(req.params.id);
+
+    if (!eliminarUser) return res.sendStatus(404);
+    return res.sendStatus(204);
+  } catch (error) {
+    return res.status(404).json({ message: "Rumi no encontrado" });
+  }
+};
