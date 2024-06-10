@@ -7,7 +7,7 @@ function RumisPage() {
     obtenerRumis();
   }, []);
   return (
-    <div className="flex flex-col justify-center m-[20px] md:grid grid-cols-3 gap-2">
+    <div className="flex flex-col justify-center items-center m-[20px] md:grid grid-cols-3 gap-2">
       {rumis.map((rumi) => (
         <CardRumi rumi={rumi} key={rumi._id} />
       ))}

@@ -25,6 +25,10 @@ const usuarioEsquema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  tieneRumi: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 export default mongoose.model("Usuario", usuarioEsquema);

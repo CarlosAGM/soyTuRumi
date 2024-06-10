@@ -5,7 +5,8 @@ import jwt from "jsonwebtoken";
 import { TOKEN_SECRETO } from "../config.js";
 
 export const registro = async (req, res) => {
-  const { nombre, apellido, email, password, institucion } = req.body;
+  const { nombre, apellido, email, password, institucion, tieneRumi } =
+    req.body;
 
   try {
     const usuarioEncontrado = await Usuario.findOne({ email });
@@ -18,6 +19,7 @@ export const registro = async (req, res) => {
       email,
       password: cifrado,
       institucion,
+      tieneRumi,
     });
 
     const usuarioGuardado = await nuevoUsuario.save();
@@ -29,6 +31,7 @@ export const registro = async (req, res) => {
       apellido: usuarioGuardado.apellido,
       email: usuarioGuardado.email,
       institucion: usuarioGuardado.institucion,
+      tieneRumi: usuarioGuardado.tieneRumi,
     });
   } catch (error) {
     console.log(error);
@@ -61,6 +64,7 @@ export const login = async (req, res) => {
       apellido: userEncontrado.apellido,
       email: userEncontrado.email,
       institucion: userEncontrado.institucion,
+      tieneRumi: userEncontrado.tieneRumi,
     });
   } catch (error) {
     console.log(error);
@@ -84,6 +88,7 @@ export const perfil = async (req, res) => {
     apellido: userEncontrado.apellido,
     email: userEncontrado.email,
     institucion: userEncontrado.institucion,
+    tieneRumi: userEncontrado.tieneRumi,
   });
 };
 
@@ -101,13 +106,14 @@ export const verificarToken = async (req, res) => {
       nombre: userEncontrado.nombre,
       apellido: userEncontrado.apellido,
       email: userEncontrado.email,
+      tieneRumi: userEncontrado.tieneRumi,
     });
   });
 };
 
 export const actualizarUser = async (req, res) => {
   try {
-    const actualizarUser = await Rumi.findByIdAndUpdate(
+    const actualizarUser = await Usuario.findByIdAndUpdate(
       req.params.id,
       req.body,
       {
@@ -122,9 +128,9 @@ export const actualizarUser = async (req, res) => {
 
 export const eliminarUser = async (req, res) => {
   try {
-    const eliminarUser = await Rumi.findByIdAndDelete(req.params.id);
-
+    const eliminarUser = await Usuario.findByIdAndDelete(req.params.id);
     if (!eliminarUser) return res.sendStatus(404);
+
     return res.sendStatus(204);
   } catch (error) {
     return res.status(404).json({ message: "Rumi no encontrado" });

@@ -10,5 +10,5 @@ export const obtenerUserRequest = (id) => axios.get(`/perfil/${id}`);
 
 export const borrarUserRequest = (id) => axios.delete(`/perfil/${id}`);
 
-export const actualizarUserRequest = (user) =>
-  axios.put(`/perfil/${user._id}`, user);
+export const actualizarUserRequest = (id, user) =>
+  axios.put(`/perfil/${id}`, user);

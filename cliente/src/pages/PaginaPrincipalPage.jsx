@@ -5,10 +5,10 @@ import CardRumiSmall from "../components/CardRumiSmall";
 function PaginaPrincipalPage() {
   return (
     <div className="flex flex-col items-center gap-10 mt-24">
-      <div class="flex bg-[url('/src/assets/banner.jpg')] bg-cover w-11/12 h-[500px] rounded-3xl justify-center items-center mt-5">
+      <div className="flex bg-[url('/src/assets/banner.jpg')] bg-cover w-11/12 h-[500px] rounded-3xl justify-center items-center mt-5">
         <img src={logoBlanco} alt="logoApp" />
       </div>
-      <div class="md:w-11/12 md:h-[500px]">
+      <div className="md:w-11/12 md:h-[500px]">
         <div className="flex justify-between m-10">
           <h2 className="text-5xl">Busco Rumis</h2>
           <div className="flex bg-green-400 h-14 w-32 rounded-full text-green-900 font-bold items-center justify-center">
@@ -21,7 +21,7 @@ function PaginaPrincipalPage() {
         </div>
       </div>
       <div
-        class="flex flex-col items-center md:flex-row  w-11/12 md:h-[500px] rounded-3xl"
+        className="flex flex-col items-center md:flex-row  w-11/12 md:h-[500px] rounded-3xl"
         id="somos"
       >
         <img src={grupStudent} className="rounded-3xl" />

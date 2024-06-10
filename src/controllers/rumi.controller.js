@@ -1,5 +1,6 @@
 import { eleminarImagen, subirImagen } from "../libs/cloudinary.js";
 import Rumi from "../models/rumi.models.js";
+import Usuario from "../models/user.model.js";
 import fs from "fs-extra";
 
 export const obtenerRumis = async (req, res) => {
@@ -26,33 +27,48 @@ export const crearRumi = async (req, res) => {
     ubicacion,
     celular,
     infoExtra,
+    usuario,
   } = req.body;
 
-  let imagen = null;
-  if (req.files?.imagen) {
-    const result = await subirImagen(req.files.imagen.tempFilePath);
-    await fs.remove(req.files.imagen.tempFilePath);
-    imagen = {
-      url: result.secure_url,
-      public_id: result.public_id,
-    };
-  }
+  try {
+    const userRum = await Usuario.findById(req.user.id);
+    console.log(req.user.id);
+    if (userRum.tieneRumi == true) {
+      return res
+        .status(404)
+        .json({ message: "El usuario ya ha creado un rumi" });
+    }
 
-  const nuevoRumi = new Rumi({
-    edad,
-    genero,
-    mascotas,
-    hijos,
-    arriendo,
-    region,
-    ubicacion,
-    celular,
-    infoExtra,
-    imagen,
-    usuario: req.user.id,
-  });
-  const guardarRumi = await nuevoRumi.save();
-  res.json(guardarRumi);
+    let imagen = null;
+    if (req.files?.imagen) {
+      const result = await subirImagen(req.files.imagen.tempFilePath);
+      await fs.remove(req.files.imagen.tempFilePath);
+      imagen = {
+        url: result.secure_url,
+        public_id: result.public_id,
+      };
+    }
+
+    const nuevoRumi = new Rumi({
+      edad,
+      genero,
+      mascotas,
+      hijos,
+      arriendo,
+      region,
+      ubicacion,
+      celular,
+      infoExtra,
+      imagen,
+      usuario: req.user.id,
+    });
+    const guardarRumi = await nuevoRumi.save();
+    userRum.tieneRumi = true;
+    await userRum.save();
+    res.json(guardarRumi);
+  } catch (error) {
+    return res.status(404).json({ message: "Rumi no encontrado" });
+  }
 };
 
 export const obtenerRumi = async (req, res) => {
@@ -67,7 +83,9 @@ export const eliminarRumi = async (req, res) => {
     if (eleminarRumi && eleminarRumi.imagen.public_id) {
       await eleminarImagen(eleminarRumi.imagen.public_id);
     }
-
+    const userRum = await Usuario.findById(req.user.id);
+    userRum.tieneRumi = false;
+    await userRum.save();
     if (!eleminarRumi) return res.sendStatus(404);
     return res.sendStatus(204);
   } catch (error) {
