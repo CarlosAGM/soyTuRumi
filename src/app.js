@@ -6,7 +6,7 @@ import fileUpload from "express-fileupload"; // Middleware para manejar la subid
 
 // Importamos nuestras rutas personalizadas
 import authRutas from "./routes/auth.routes.js"; // Rutas relacionadas con la autenticación
-import rumiRutas from "./routes/rumi.routes.js"; // Otras rutas personalizadas (probablemente relacionadas con "rumis")
+import rumiRutas from "./routes/rumi.routes.js"; // Otras rutas personalizadas relacionadas con rumis
 
 // Creamos una instancia de una aplicación Express
 const app = express();
@@ -20,11 +20,9 @@ app.use(
 );
 
 // Configuramos Morgan para registrar las solicitudes HTTP en la consola
-app.use(morgan("dev")); // Modo de desarrollo para obtener detalles de las solicitudes
-
+app.use(morgan("dev"));
 // Configuramos Express para analizar los cuerpos de las solicitudes en formato JSON
-app.use(express.json()); // Analiza las solicitudes con contenido JSON
-
+app.use(express.json());
 // Configuramos el analizador de cookies para manejar las cookies en las solicitudes
 app.use(cookieParser()); // Permite el acceso y manipulación de cookies
 
@@ -37,8 +35,8 @@ app.use(
 );
 
 // Definimos las rutas de nuestra API
-app.use("/api", authRutas); // Rutas relacionadas con la autenticación
-app.use("/api", rumiRutas); // Rutas realacionadas relacionadas con rumis
+app.use("/api", authRutas);
+app.use("/api", rumiRutas);
 
 // Exportamos la instancia de la aplicación para usarla en otros archivos
 export default app;

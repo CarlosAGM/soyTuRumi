@@ -4,35 +4,38 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
 function perfilPage() {
-  const { register, handleSubmit, setValue } = useForm();
-  const { actualizarUser, borrarUser, obtenerUser, user } = useAuth();
-  const navegar = useNavigate();
-  const params = useParams();
+  const { register, handleSubmit, setValue } = useForm(); // Importa funciones de useForm
+  const { actualizarUser, borrarUser, obtenerUser, user } = useAuth(); // Importa funciones de useAuth
+  const navegar = useNavigate(); // Variables para la navegación
+  const params = useParams(); // Variables para obtener los parámetros de la URL
 
   useEffect(() => {
+    // Se ejecuta cuando el componente se carga para la actualizacion del usuario
     async function cargaUser() {
       if (params.id) {
-        console.log(params.id);
-        const usuario = await obtenerUser(params.id);
+        // Verifica si hay un ID en los parámetros
+        const usuario = await obtenerUser(params.id); // Obtiene el usuario con el ID proporcionado
+        // Asigna los valores del usuario a los campos del formulario utilizando setValue
         setValue("nombre", usuario.nombre);
         setValue("apellido", usuario.apellido);
         setValue("email", usuario.email);
         setValue("institucion", usuario.institucion);
       }
     }
-    cargaUser();
+    cargaUser(); // Llama a la función cargaUser al cargar el componente
   }, []);
 
+  // Función para borrar el usuario actual
   const borrarUsuario = () => {
-    borrarUser(user.id);
-    navegar("/");
+    borrarUser(user.id); // Llama a la función borrarUser y le pasa el id del usuario
+    navegar("/"); // Navega de vuelta a la página principal
   };
 
+  // Función que se ejecuta al enviar el formulario
   const alEnviar = handleSubmit((data) => {
-    actualizarUser(params.id, data);
-    navegar("/");
+    actualizarUser(params.id, data); // Llama a la función actualizarUser le entrega el id usuario y los datos ingesado
+    navegar("/"); // Navega de vuelta a la página principal
   });
-
   return (
     <div className="flex items-center justify-center">
       <div className="border-solid border-4 border-verdeOriginal p-10 rounded-md mt-[20px] w-3/4 ">

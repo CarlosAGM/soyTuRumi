@@ -8,16 +8,22 @@ function RegistroPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const { signup, esAutenticado, errors: registroError } = useAuth();
-  const navegar = useNavigate();
+  } = useForm(); // Importa funciones de useForm
 
+  const { signup, esAutenticado, errors: registroError } = useAuth(); // Importa funciones de useAuth
+
+  const navegar = useNavigate(); // Variable para la navegación
+
+  // Se ejecuta cuando el estado de autenticación cambia
   useEffect(() => {
-    if (esAutenticado) navegar("/rumis");
-  }, [esAutenticado]);
+    if (esAutenticado) {
+      navegar("/rumis"); // Navega a la página de rumis si el usuario está autenticado
+    }
+  }, [esAutenticado]); // Dependencia: se ejecuta cuando esAutenticado cambia
 
+  // Función que se ejecuta al enviar el formulario
   const alEnviar = handleSubmit(async (values) => {
-    signup(values);
+    signup(values); // Llama a la función signup del useAuth con los valores del formulario
   });
 
   return (

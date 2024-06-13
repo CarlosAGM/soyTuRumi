@@ -5,48 +5,44 @@ import { useRumis } from "../context/RumiContext";
 import logoColor from "../assets/logoColor.png";
 
 function CrearRumisPages() {
-  const { register, handleSubmit, setValue } = useForm();
-  const { crearRumi, obtenerRumi, actualizarRumi } = useRumis();
+  const { register, handleSubmit, setValue } = useForm(); // Importa funciones de useForm
+  const { crearRumi, obtenerRumi, actualizarRumi } = useRumis(); // Importa funciones de useRumis
 
-  const navegar = useNavigate();
-  const params = useParams();
+  const navegar = useNavigate(); // Variable para la navegación
+  const params = useParams(); // Variable para obtener los parámetros de la URL
 
   useEffect(() => {
+    //Funcion para actualizar el Rumi
     async function cargaRumi() {
       if (params.id) {
-        const rumi = await obtenerRumi(params.id);
-        setValue("edad", rumi.edad);
+        // Si hay un ID en los parámetros, carga el Rumi correspondiente
+        const rumi = await obtenerRumi(params.id); // Obtiene el Rumi desde el servicio
+        setValue("edad", rumi.edad); // Asigna los valores obtenidos a los campos del formulario
         setValue("genero", rumi.genero);
         setValue("mascotas", rumi.mascotas);
         setValue("hijos", rumi.hijos);
         setValue("arriendo", rumi.arriendo);
         setValue("ubicacion", rumi.region);
-        setValue("ubicacion", rumi.ubicacion);
+        setValue("ubicacion", rumi.ubicacion); // Se sobrescribe, asegúrate que es intencional
         setValue("celular", rumi.celular);
         setValue("infoExtra", rumi.infoExtra);
         setValue("imagen", rumi.imagen);
       }
     }
-    cargaRumi();
+    cargaRumi(); // Llama a la función de carga del Rumi al montar el componente
   }, []);
 
-  const [selectSubirImagen, setSelectedImagen] = useState(null);
-
-  const handleSubirImagen = (e) => {
-    setSelectedImagen(e.target.files[0]);
-  };
-
   const alEnviar = handleSubmit((data) => {
-    console.log(data);
+    // Manejo para el envío del formulario
     if (params.id) {
+      // Si hay un ID en los parámetros, actualiza el Rumi
       actualizarRumi(params.id, data);
     } else {
-      console.log(data);
+      // De lo contrario, crea un nuevo Rumi
       crearRumi(data);
     }
-    navegar("/");
+    navegar("/"); // Navega de vuelta a la página principal después de enviar el formulario
   });
-
   return (
     <div className="flex items-center justify-center">
       <div className="border-solid border-4 border-verdeOriginal p-10 rounded-md mt-[20px] w-3/4 ">
@@ -139,15 +135,9 @@ function CrearRumisPages() {
             {...register("infoExtra")}
             className="w-full border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md my-2"
           />
-          {/* <input
-            type="text"
-            placeholder="Img 1"
-            {...register("imagen")}
-            className="w-full border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md my-2"
-          /> */}
+
           <input
             type="file"
-            // {...register("imagen")}
             className="w-full border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md my-2"
             onChange={(e) => setValue("imagen", e.target.files[0])}
           />

@@ -9,15 +9,22 @@ function LoginPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const { signin, errors: signinErrors, esAutenticado } = useAuth();
-  const navegar = useNavigate();
+  } = useForm(); // Importa funciones de useForm
+
+  const { signin, errors: signinErrors, esAutenticado } = useAuth(); // Importa funciones de useAuth
+
+  const navegar = useNavigate(); // Variable para la navegación
+
   const alEnviar = handleSubmit((data) => {
-    signin(data);
+    // Manejador para el envío del formulario
+    signin(data); // Llama a la función signin del hook useAuth con los datos del formulario
   });
 
   useEffect(() => {
-    if (esAutenticado) navegar("/rumis");
+    // Se ejecuta cuando el estado de autenticación cambia
+    if (esAutenticado) {
+      navegar("/rumis"); // Navega a la página de rumis si el usuario está autenticado
+    }
   }, [esAutenticado]);
 
   return (
