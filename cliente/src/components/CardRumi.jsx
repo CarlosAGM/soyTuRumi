@@ -53,14 +53,20 @@ function CardRumi({ rumi }) {
           <></>
         )}
       </header>
-      <p className="text-black">{JSON.stringify(rumi.edad)}</p>
-      <p className="text-black">{JSON.stringify(rumi.mascotas)}</p>
-      <p className="text-black">{JSON.stringify(rumi.hijos)}</p>
-      <p className="text-black">{JSON.stringify(rumi.arriendo)}</p>
-      <p className="text-black">{JSON.stringify(rumi.region)}</p>
-      <p className="text-black">{JSON.stringify(rumi.ubicacion)}</p>
-      <p className="text-black">{JSON.stringify(rumi.celular)}</p>
-      <p className="text-black">{JSON.stringify(rumi.infoExtra)}</p>
+      <p className="text-black">{rumi.edad}</p>
+      <p className="text-black">{rumi.mascotas}</p>
+      <p className="text-black">{rumi.hijos}</p>
+      <p className="text-black">{rumi.arriendo}</p>
+      <p className="text-black">{rumi.region}</p>
+      <p className="text-black">{rumi.ubicacion}</p>
+      <p className="text-black">{rumi.celular}</p>
+      <a
+        href={`https://api.whatsapp.com/send?phone=569${rumi.celular}`}
+        target="_blank"
+      >
+        <ion-icon name="logo-whatsapp" size="large"></ion-icon>
+      </a>
+      <p className="text-black">{rumi.infoExtra}</p>
     </div>
   );
 }
