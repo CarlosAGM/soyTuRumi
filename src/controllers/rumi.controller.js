@@ -6,10 +6,10 @@ import fs from "fs-extra"; // Importa fs-extra para gestionar operaciones del si
 // Obtener todos los rumis
 export const obtenerRumis = async (req, res) => {
   try {
-    // Busca todos los rumis y llena los campos relacionados del usuario
+    // Busca todos los rumis
     const rumis = await Rumi.find({}).populate(
       "usuario",
-      "nombre apellido email"
+      "nombre apellido email institucion"
     );
 
     // Devuelve los rumis encontrados

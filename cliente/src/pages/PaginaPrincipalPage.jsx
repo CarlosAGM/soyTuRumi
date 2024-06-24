@@ -18,6 +18,7 @@ function PaginaPrincipalPage() {
         <div className="flex flex-col justify-center items-center gap-8 md:flex-row">
           <CardRumiSmall />
           <CardRumiSmall />
+          <CardRumiSmall />
         </div>
       </div>
       <div

@@ -9,6 +9,7 @@ function CardRumi({ rumi }) {
   const creadorPost = rumi.usuario._id;
   const userLog = user.id;
   const autor = creadorPost === userLog;
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {

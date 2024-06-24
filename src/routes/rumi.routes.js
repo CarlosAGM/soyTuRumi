@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { authRequerida } from "../middlewares/validarToken.js";
+import { verificarToken } from "../controllers/auth.controller.js";
 import {
   obtenerRumis,
   crearRumi,
