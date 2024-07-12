@@ -27,63 +27,113 @@ function CardRumiParms({ rumi }) {
   return (
     <div>
       {mostrarCardGrande ? (
-        <div className="bg-zinc-100 max-w-md w-full p-10 rounded-md">
-          {rumi.imagen && <img src={rumi.imagen.url} alt="" />}
-          <header className="flex w-full justify-between">
-            <div className="flex">
-              <h1 className="text-2xl font-bold pr-2">{rumi.usuario.nombre}</h1>
-              <h1 className="text-2xl font-bold pr-2">
-                {rumi.usuario.apellido}
-              </h1>
-            </div>
-            {autor ? (
-              <div className="relative inline-block text-right">
-                <div
-                  onClick={toggleMenu}
-                  className="text-3xl cursor-pointer h-15"
-                >
-                  <ion-icon
-                    name={isMenuOpen ? "close" : "settings-outline"}
-                  ></ion-icon>
-                </div>
-                {isMenuOpen && (
-                  <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                    <div className="py-1">
-                      <Link
-                        to={`/rumis/${rumi._id}`}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-500 w-full text-center"
-                      >
-                        Editar
-                      </Link>
-                      <button
-                        onClick={() => eliminarRumi(rumi._id)}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-red-500 w-full text-center"
-                      >
-                        Eliminar
-                      </button>
-                    </div>
-                  </div>
-                )}
+        <div className="max-w-md w-full rounded-md">
+          {rumi.imagen && (
+            <img
+              src={rumi.imagen.url}
+              alt=""
+              className="rounded-t-3xl object-cover w-full h-[210px]"
+            />
+          )}
+
+          <div className="bg-gray-200 p-10 rounded-b-3xl">
+            <header className="flex w-full justify-between">
+              <div className="flex">
+                <h1 className="text-2xl font-bold pr-2 text-verdeOriginal">
+                  Soy
+                </h1>
+                <h1 className="text-2xl pr-2">{rumi.usuario.nombre}</h1>
+                <h1 className="text-2xl pr-2">{rumi.usuario.apellido}</h1>
               </div>
-            ) : (
-              <></>
-            )}
-          </header>
-          <p className="text-black">{rumi.edad}</p>
-          <p className="text-black">{rumi.mascotas}</p>
-          <p className="text-black">{rumi.hijos}</p>
-          <p className="text-black">{rumi.arriendo}</p>
-          <p className="text-black">{rumi.region}</p>
-          <p className="text-black">{rumi.ubicacion}</p>
-          <p className="text-black">{rumi.celular}</p>
-          <a
-            href={`https://api.whatsapp.com/send?phone=569${rumi.celular}`}
-            target="_blank"
-          >
-            <ion-icon name="logo-whatsapp" size="large"></ion-icon>
-          </a>
-          <p className="text-black">{rumi.infoExtra}</p>
-          <button onClick={handleCloseClick}>Cerrar</button>
+              {autor ? (
+                <div className="relative inline-block text-right">
+                  <div
+                    onClick={toggleMenu}
+                    className="text-3xl cursor-pointer h-15"
+                  >
+                    <ion-icon
+                      name={isMenuOpen ? "close" : "settings-outline"}
+                    ></ion-icon>
+                  </div>
+                  {isMenuOpen && (
+                    <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                      <div className="py-1">
+                        <Link
+                          to={`/rumis/${rumi._id}`}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-500 w-full text-center"
+                        >
+                          🔧 Editar
+                        </Link>
+                        <button
+                          onClick={() => eliminarRumi(rumi._id)}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-red-500 w-full text-center"
+                        >
+                          🗑️ Eliminar
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <></>
+              )}
+            </header>
+            <div className="flex items-center">
+              <p className="font-bold text-lg pr-2">Edad: </p>
+              <p className="text-lg">{rumi.edad}</p>
+            </div>
+
+            <div className="flex items-center">
+              <p className="font-bold text-lg pr-2">Sexo: </p>
+              <p className="text-lg">{rumi.genero}</p>
+            </div>
+
+            <div className="flex items-center">
+              <p className="font-bold text-lg pr-2">Mascotas: </p>
+              <p className="text-lg">{rumi.mascotas}</p>
+            </div>
+
+            <div className="flex items-center">
+              <p className="font-bold text-lg pr-2">Hijos: </p>
+              <p className="text-lg">{rumi.hijos}</p>
+            </div>
+
+            <div className="flex items-center">
+              <p className="font-bold text-lg pr-2">Ofrezco: </p>
+              <p className="text-lg">${rumi.arriendo}</p>
+            </div>
+
+            <div className="flex items-center">
+              <p className="font-bold text-lg pr-2">Ubicación deseada: </p>
+              <p className="text-lg">{rumi.region}</p>
+            </div>
+
+            <div className="flex items-center">
+              <p className="font-bold text-lg pr-2">Escríbeme: </p>
+              <a
+                href={`https://api.whatsapp.com/send?phone=569${rumi.celular}&text=Hola,%20quiero%20ser%20tu%20rumi%20`}
+                target="_blank"
+              >
+                <ion-icon
+                  name="logo-whatsapp"
+                  size="large"
+                  class="text-green-600"
+                ></ion-icon>
+              </a>
+            </div>
+            <div className="flex items-center">
+              <p className="font-bold text-lg pr-2">Más de mí: </p>
+              <p className="text-lg">{rumi.infoExtra}</p>
+            </div>
+            <div className="flex cursor-pointer justify-center mt-6">
+              <ion-icon
+                name="close"
+                class="text-red-600"
+                size="large"
+                onClick={handleCloseClick}
+              ></ion-icon>
+            </div>
+          </div>
         </div>
       ) : (
         <div className="h-[350px] w-[350px] bg-gray-200 rounded-2xl">

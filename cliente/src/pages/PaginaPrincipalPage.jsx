@@ -1,5 +1,9 @@
 import logoBlanco from "../assets/logoBlanco.png";
 import grupStudent from "../assets/grupStudent.png";
+import persona1 from "../assets/persona1.png";
+import persona6 from "../assets/persona6.png";
+import persona2 from "../assets/persona2.png";
+import persona7 from "../assets/persona7.png";
 
 import CardRumiSmall from "../components/CardRumiSmall";
 function PaginaPrincipalPage() {
@@ -16,9 +20,34 @@ function PaginaPrincipalPage() {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center gap-8 md:flex-row">
-          <CardRumiSmall />
-          <CardRumiSmall />
-          <CardRumiSmall />
+          <CardRumiSmall
+            region={"Valparaíso"}
+            nombre={"Alberto"}
+            universidad={"Duoc Uc"}
+            foto={persona1}
+            direccionUrl={"/rumis"}
+          />
+          <CardRumiSmall
+            region={"Rancagua"}
+            nombre={"Andrea"}
+            universidad={"O'Higgins"}
+            foto={persona6}
+            direccionUrl={"/rumis"}
+          />
+          <CardRumiSmall
+            region={"Valparíso"}
+            nombre={"Génesis"}
+            universidad={"CFT"}
+            foto={persona2}
+            direccionUrl={"/rumis"}
+          />
+          <CardRumiSmall
+            region={"Santiago"}
+            nombre={"Pedro"}
+            universidad={"UNAB"}
+            foto={persona7}
+            direccionUrl={"/rumis"}
+          />
         </div>
       </div>
       <div

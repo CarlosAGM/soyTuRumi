@@ -26,7 +26,7 @@ function RumisPage() {
     obtenerRumis();
   }, []);
   return (
-    <div className="grid md:flex justify-center items-center m-[20px] gap-2">
+    <div className="grid grid-cols-1 md:grid-cols-3 place-items-center m-[20px] gap-4">
       {rumis.map((rumi) => (
         <CardRumiParams rumi={rumi} key={rumi._id} />
       ))}
