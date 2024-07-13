@@ -90,7 +90,7 @@ $npm run dev
 
 ## Estructura del proyecto 🛠️
 
-![](https://i.ibb.co/HhG0n57/estructura.png)
+![](https://i.ibb.co/Sdhq09x/Captura-de-pantalla-2024-07-13-020925.png)
 
 ## Construido con stack MERN 💻
 
