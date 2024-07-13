@@ -7,6 +7,8 @@ import LoginPage from "./pages/LoginPage";
 import RegistroPage from "./pages/RegistroPage";
 import RumisPage from "./pages/RumisPage";
 import CrearRumisPages from "./pages/CrearRumisPages";
+import DesarrolladoresPages from "./pages/DesarrolladoresPages";
+import QuienesSomosPages from "./pages/QuienesSomosPages";
 
 import PerfilPage from "./pages/PerfilPage";
 import ProtectorRutas from "./ProtectorRutas";
@@ -24,6 +26,11 @@ function App() {
               <Route path="/" element={<PaginaPrincipalPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/registro" element={<RegistroPage />} />
+              <Route path="/quienessomos" element={<QuienesSomosPages />} />
+              <Route
+                path="/desarrolladores"
+                element={<DesarrolladoresPages />}
+              />
               <Route element={<ProtectorRutas />}>
                 <Route path="/Rumis" element={<RumisPage />} />
                 <Route path="/crearRumi" element={<CrearRumisPages />} />

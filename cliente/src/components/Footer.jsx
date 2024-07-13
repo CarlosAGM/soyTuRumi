@@ -28,11 +28,11 @@ function Footer() {
         </div>
         <div className="flex flex-col gap-3">
           <h2 className="text-4xl">Ayuda</h2>
-          <a href="#" className="text-xl">
+          <a href="/quienessomos" className="text-xl">
             Quienes Somos
           </a>
-          <a href="#" className="text-xl">
-            Contacto
+          <a href="/desarrolladores" className="text-xl">
+            Desarrolladores
           </a>
         </div>
       </div>

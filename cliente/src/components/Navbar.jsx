@@ -31,7 +31,7 @@ function Navbar() {
     },
     {
       name: "Quienes Somos",
-      link: "#somos",
+      link: "/quienessomos",
       estilo: "text-gray-800 hover:text-gray-400 duration-500",
     },
     {
@@ -60,7 +60,7 @@ function Navbar() {
     },
     {
       name: "Quienes Somos",
-      link: "#somos",
+      link: "/quienessomos",
       estilo: "text-gray-800 hover:text-gray-400 duration-500 mr-20",
     },
   ];

@@ -20,7 +20,7 @@ import { registroEsquema, loginEsquema } from "../schemas/auth.schema.js";
 
 const rutas = Router(); // Crea una instancia de Router
 
-// Define las rutas de autenticación
+// Rutas de autenticación
 rutas.post("/registro", validarEsquema(registroEsquema), registro); // Ruta para registro de usuarios con validación de esquema
 rutas.post("/login", validarEsquema(loginEsquema), login); // Ruta para login de usuarios con validación de esquema
 rutas.post("/logout", logout); // Ruta para logout de usuarios
