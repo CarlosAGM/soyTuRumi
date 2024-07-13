@@ -86,24 +86,7 @@ $npm run dev
 
 ## Estructura del proyecto 🛠️
 
-`soyTuRumi/`
-`├── cliente/` _Front End_
-`│   ├── components/`
-`│   ├── pages/`
-`│   └── styles/`
-`├── imagenes/`
-`├── src/` _Back End_
-`│   ├── controllers/`
-`│   ├── models/`
-`│   ├── routes/`
-`│   └── utils/`
-`├── .env.example`
-`├── .gitignore`
-`├── README.md`
-`├── favicon.ico`
-`├── package-lock.json`
-`├── package.json`
-`└── vite.svg`
+![](https://i.ibb.co/HhG0n57/estructura.png)
 
 ## Construido con stack MERN 🛠️
 
