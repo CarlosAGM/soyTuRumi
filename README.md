@@ -46,6 +46,8 @@ _Instala las depencias front end_
 $npm i
 ```
 
+### Configuración .env 🛠️
+
 _Usando de ejemplo el archivo .env.example crea un archivo al mismo nivel llamado .env y ingresa tus datos_
 
 ```
@@ -63,6 +65,8 @@ API_KEY = ""
 API_SECRET = ""
 CLOUDINARY_URL =
 ```
+
+### Levanta el proyecto 🛫
 
 _Levanta la base de datos MongoDB en consola_
 
@@ -88,7 +92,7 @@ $npm run dev
 
 ![](https://i.ibb.co/HhG0n57/estructura.png)
 
-## Construido con stack MERN 🛠️
+## Construido con stack MERN 💻
 
 - [MongoDB](https://www.mongodb.com): Base de datos NoSQL orientada a documentos, flexible y escalable, que almacena datos en formato JSON.
 
@@ -100,7 +104,7 @@ $npm run dev
 
 - [Vite](https://vitejs.dev/): Vite es una herramienta de construcción rápida y eficiente para proyectos de JavaScript, conocida por su inicio instantáneo y su capacidad para manejar módulos ES nativos de manera eficaz en el desarrollo.
 
-### Dependencias FrontEnd 🔧
+### Dependencias FrontEnd 💻
 
 - **Tailwindcss:** Framework de CSS utility-first que facilita la creación de interfaces de usuario personalizables y responsivas mediante clases predefinidas.
 
@@ -114,7 +118,7 @@ $npm run dev
 
 - **Js-cookie:** Biblioteca para la gestión de cookies en JavaScript de manera sencilla y eficiente, facilitando la creación, lectura y eliminación de cookies.
 
-### Dependencias BackEnd 🔧
+### Dependencias BackEnd 💻
 
 - **Mongoose:** ODM (Object-Document Mapper) para MongoDB en Node.js, facilita la interacción con la base de datos MongoDB utilizando esquemas y modelos.
 
