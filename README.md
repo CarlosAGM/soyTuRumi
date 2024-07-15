@@ -130,7 +130,7 @@ $npm run dev
 
 - **Nodemon:** Utilidad para Node.js que reinicia automáticamente la aplicación cuando se detectan cambios en los archivos de origen, ideal para el desarrollo.
 
-- **Jsonwebtoken: **Biblioteca para la creación y verificación de tokens JWT (JSON Web Tokens), utilizados para la autenticación en aplicaciones web.
+- **Jsonwebtoken:** Biblioteca para la creación y verificación de tokens JWT (JSON Web Tokens), utilizados para la autenticación en aplicaciones web.
 
 - **Cookie-parser:** Middleware para Express que facilita el análisis de cookies en las solicitudes HTTP.
 
@@ -142,7 +142,7 @@ $npm run dev
 
 - **Cloudinary:** Servicio en la nube para el almacenamiento y la manipulación de imágenes y videos, integrable con aplicaciones web.
 
-- **Zod: **Biblioteca para la validación de esquemas de datos en JavaScript/TypeScript de manera intuitiva y segura.
+- **Zod:** Biblioteca para la validación de esquemas de datos en JavaScript/TypeScript de manera intuitiva y segura.
 
 - **Cors:** Middleware para Express que habilita el intercambio de recursos entre diferentes dominios, útil para evitar problemas de seguridad en las solicitudes AJAX.
 
@@ -151,4 +151,4 @@ $npm run dev
 - **Carlos Agüero** - _Proyecto Inicial_ - [github](https://github.com/CarlosAGM) - [linkedin](www.linkedin.com/in/carlos-agüero-marquizani-620618243)
 - **Maximiliano Valdebenito** - _Proyecto Inicial_ - [github](https://github.com/Zycky/)
 
-###Fin
+#Fin
