@@ -151,4 +151,4 @@ $npm run dev
 - **Carlos Agüero** - _Proyecto Inicial_ - [github](https://github.com/CarlosAGM) - [linkedin](www.linkedin.com/in/carlos-agüero-marquizani-620618243)
 - **Maximiliano Valdebenito** - _Proyecto Inicial_ - [github](https://github.com/Zycky/)
 
-#Fin
+# Fin
