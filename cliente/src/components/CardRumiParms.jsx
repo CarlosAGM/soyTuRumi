@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRumis } from "../context/RumiContext";
 import { useAuth } from "../context/authContext";
+import { Card } from "@material-tailwind/react";
 
 function CardRumiParms({ rumi }) {
   const { eliminarRumi } = useRumis();
@@ -27,7 +28,7 @@ function CardRumiParms({ rumi }) {
   return (
     <div>
       {mostrarCardGrande ? (
-        <div className="max-w-md w-full rounded-md">
+        <Card className="max-w-md w-full rounded-3xl">
           {rumi.imagen && (
             <img
               src={rumi.imagen.url}
@@ -84,6 +85,11 @@ function CardRumiParms({ rumi }) {
             </div>
 
             <div className="flex items-center">
+              <p className="font-bold text-lg pr-2">Nacionalidad: </p>
+              <p className="text-lg">{rumi.ubicacion}</p>
+            </div>
+
+            <div className="flex items-center">
               <p className="font-bold text-lg pr-2">Sexo: </p>
               <p className="text-lg">{rumi.genero}</p>
             </div>
@@ -134,9 +140,9 @@ function CardRumiParms({ rumi }) {
               ></ion-icon>
             </div>
           </div>
-        </div>
+        </Card>
       ) : (
-        <div className="h-[350px] w-[350px] bg-gray-200 rounded-2xl">
+        <Card className="h-[350px] w-[350px] bg-gray-200 rounded-2xl">
           <div className="">
             {rumi.imagen && (
               <img
@@ -148,7 +154,7 @@ function CardRumiParms({ rumi }) {
           </div>
           <div className="flex">
             <div className="m-3">
-              <h1 className="text-[20px] font-bold">
+              <h1 className="text-[20px] font-bold text-verdeOriginal">
                 Soy {rumi.usuario.nombre}
               </h1>
               <div className="flex gap-2 mt-2 items-center">
@@ -173,7 +179,7 @@ function CardRumiParms({ rumi }) {
               </button>
             </div>
           </div>
-        </div>
+        </Card>
       )}
     </div>
   );

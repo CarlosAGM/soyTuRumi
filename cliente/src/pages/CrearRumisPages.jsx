@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useRumis } from "../context/RumiContext";
 import logoColor from "../assets/logoColor.png";
+import { Card } from "@material-tailwind/react";
 
 function CrearRumisPages() {
   const { register, handleSubmit, setValue } = useForm(); // Importa funciones de useForm
@@ -45,7 +46,7 @@ function CrearRumisPages() {
   });
   return (
     <div className="flex items-center justify-center">
-      <div className=" p-10 rounded-md mt-[20px] w-3/4 ">
+      <Card className=" p-10 rounded-md mt-[20px] w-[700px] shadow-2xl">
         <div className="flex w-full justify-center">
           <img src={logoColor} alt="" className="h-20" />
         </div>
@@ -64,52 +65,77 @@ function CrearRumisPages() {
 
             <div>
               <div className="flex">
-                <input
-                  type="text"
-                  placeholder="Edad"
-                  {...register("edad")}
-                  className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
-                />
-                <select
-                  {...register("genero")}
-                  defaultValue={"defecto"}
-                  className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
-                >
-                  <option value="defecto" disabled>
-                    Sexo
-                  </option>
-                  <option value="Masculino">Masculino</option>
-                  <option value="Femenino">Femenino</option>
-                  <option value="Otro">Otro</option>
-                </select>
+                <div>
+                  <p className="font-bold text-verdeOriginal">Edad</p>
+                  <input
+                    type="text"
+                    placeholder="20"
+                    {...register("edad")}
+                    className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
+                    required
+                  />
+                </div>
+                <div>
+                  <p className="font-bold text-verdeOriginal">Sexo</p>
+                  <select
+                    {...register("genero")}
+                    defaultValue={"defecto"}
+                    className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
+                    required
+                  >
+                    <option value="defecto" disabled>
+                      Sexo
+                    </option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                </div>
               </div>
               <div className="flex">
-                <input
-                  type="text"
-                  placeholder="Nacionalidad"
-                  {...register("ubicacion")}
-                  className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
-                />
-                <input
-                  type="text"
-                  placeholder="Hijos"
-                  {...register("hijos")}
-                  className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
-                />
+                <div>
+                  <p className="font-bold text-verdeOriginal">Nacionalidad</p>
+                  <input
+                    type="text"
+                    placeholder="Chilena"
+                    {...register("ubicacion")}
+                    className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
+                    required
+                  />
+                </div>
+                <div>
+                  <p className="font-bold text-verdeOriginal">Hijos</p>
+                  <input
+                    type="text"
+                    placeholder="1, 2 .. / No "
+                    {...register("hijos")}
+                    className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
+                    required
+                  />
+                </div>
               </div>
               <div className="flex mb-10">
-                <input
-                  type="text"
-                  placeholder="+569"
-                  {...register("celular")}
-                  className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
-                />
-                <input
-                  type="text"
-                  placeholder="Mascotas"
-                  {...register("mascotas")}
-                  className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
-                />
+                <div>
+                  <p className="font-bold text-verdeOriginal">Celular</p>
+                  <input
+                    type="text"
+                    placeholder="+569"
+                    {...register("celular")}
+                    className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <p className="font-bold text-verdeOriginal">Mascotas</p>
+                  <input
+                    type="text"
+                    placeholder="1 Perro, 1 Gato etc."
+                    {...register("mascotas")}
+                    className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
+                    required
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -119,12 +145,14 @@ function CrearRumisPages() {
               <p className="">Deseado</p>
             </div>
 
-            <div>
-              <div className="flex mb-10">
+            <div className="flex mb-10">
+              <div>
+                <p className="font-bold text-verdeOriginal">Región</p>
                 <select
                   {...register("region")}
                   defaultValue={"region"}
                   className="w-[180px] border-solid border-4 border-verdeOriginal px-4 py-2 rounded-md m-2"
+                  required
                 >
                   <option value="region" disabled>
                     Región
@@ -147,6 +175,11 @@ function CrearRumisPages() {
                   <option value="Aysén">XI. Aysén</option>
                   <option value="Magallanes">XII. Magallanes</option>
                 </select>
+              </div>
+              <div>
+                <p className="font-bold text-verdeOriginal">
+                  Dinero disponible
+                </p>
                 <input
                   type="text"
                   placeholder="Ej. 100.000"
@@ -184,6 +217,7 @@ function CrearRumisPages() {
                     type="file"
                     className="hidden"
                     onChange={(e) => setValue("imagen", e.target.files[0])}
+                    required
                   />
                 </label>
               </div>
@@ -197,7 +231,7 @@ function CrearRumisPages() {
             Publicar
           </button>
         </form>
-      </div>
+      </Card>
     </div>
   );
 }

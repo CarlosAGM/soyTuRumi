@@ -13,7 +13,7 @@ function PaginaPrincipalPage() {
         <img src={logoBlanco} alt="logoApp" />
       </div>
       <div className="md:w-11/12 md:h-[500px]">
-        <div className="flex justify-between m-10">
+        <div className="flex justify-between m-10 text-verdeOriginal font-bold">
           <h2 className="text-5xl">Busco Rumis</h2>
           <div className="flex bg-green-400 h-14 w-32 rounded-full text-green-900 font-bold items-center justify-center">
             <a href="/rumis">Todos</a>
@@ -56,7 +56,9 @@ function PaginaPrincipalPage() {
       >
         <img src={grupStudent} className="rounded-3xl" />
         <div className="flex flex-col items-center justify-center md:ml-10">
-          <h1 className="text-[40px] font-bold my-7">Quienes Somos !!</h1>
+          <h1 className="text-[40px] font-bold my-7 text-verdeOriginal">
+            Quienes Somos !!
+          </h1>
           <p className="text-justify">
             En Soy tu Rumi, nos dedicamos a facilitar la búsqueda de tu
             compañero de arriendo, creando conexiones significativas dentro de

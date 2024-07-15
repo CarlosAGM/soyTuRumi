@@ -2,7 +2,7 @@ import React from "react";
 import persona2 from "../assets/persona2.png";
 function CardRumiSmall({ region, nombre, universidad, foto, direccionUrl }) {
   return (
-    <div className="h-[350px] w-[350px] bg-gray-200 rounded-2xl">
+    <div className="h-[350px] w-[350px] bg-gray-200 rounded-2xl shadow-lg">
       <div className="">
         <img
           src={foto}

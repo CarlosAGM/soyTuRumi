@@ -25,6 +25,9 @@ function DesarrolladoresPages() {
           <Typography color="blue-gray" className="font-medium" textGradient>
             TNS Informática m/ Ciberseguridad
           </Typography>
+          <Typography color="blue-gray" className="font-medium" textGradient>
+            Viña del Mar
+          </Typography>
         </CardBody>
         <CardFooter className="flex justify-center gap-7 pt-2">
           <a href="https://github.com/CarlosAGM" target="_blank">
@@ -59,6 +62,9 @@ function DesarrolladoresPages() {
           </Typography>
           <Typography color="blue-gray" className="font-medium" textGradient>
             TNS Informática m/ Ciberseguridad
+          </Typography>
+          <Typography color="blue-gray" className="font-medium" textGradient>
+            Viña del Mar
           </Typography>
         </CardBody>
         <CardFooter className="flex justify-center gap-7 pt-2">
