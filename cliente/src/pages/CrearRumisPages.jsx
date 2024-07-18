@@ -2,13 +2,14 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useRumis } from "../context/RumiContext";
+import { useAuth } from "../context/authContext";
 import logoColor from "../assets/logoColor.png";
 import { Card } from "@material-tailwind/react";
 
 function CrearRumisPages() {
   const { register, handleSubmit, setValue } = useForm(); // Importa funciones de useForm
   const { crearRumi, obtenerRumi, actualizarRumi } = useRumis(); // Importa funciones de useRumis
-
+  const { obtenerUser } = useAuth();
   const navegar = useNavigate(); // Variable para la navegación
   const params = useParams(); // Variable para obtener los parámetros de la URL
 
@@ -16,18 +17,23 @@ function CrearRumisPages() {
     //Funcion para actualizar el Rumi
     async function cargaRumi() {
       if (params.id) {
-        // Si hay un ID en los parámetros, carga el Rumi correspondiente
-        const rumi = await obtenerRumi(params.id); // Obtiene el Rumi desde el servicio
-        setValue("edad", rumi.edad); // Asigna los valores obtenidos a los campos del formulario
-        setValue("genero", rumi.genero);
-        setValue("mascotas", rumi.mascotas);
-        setValue("hijos", rumi.hijos);
-        setValue("arriendo", rumi.arriendo);
-        setValue("region", rumi.region);
-        setValue("ubicacion", rumi.ubicacion);
-        setValue("celular", rumi.celular);
-        setValue("infoExtra", rumi.infoExtra);
-        setValue("imagen", rumi.imagen);
+        const rumi = await obtenerRumi(params.id); //  ID en los parámetros, carga el Rumi correspondiente
+        const usuario = await obtenerUser(params.id); // ID en los parámetros, carga el usuario correspondiente
+        if (rumi.usuario._id == usuario.id) {
+          // Asigna los valores obtenidos a los campos del formulario
+          setValue("edad", rumi.edad);
+          setValue("genero", rumi.genero);
+          setValue("mascotas", rumi.mascotas);
+          setValue("hijos", rumi.hijos);
+          setValue("arriendo", rumi.arriendo);
+          setValue("region", rumi.region);
+          setValue("ubicacion", rumi.ubicacion);
+          setValue("celular", rumi.celular);
+          setValue("infoExtra", rumi.infoExtra);
+          setValue("imagen", rumi.imagen);
+        } else {
+          navegar("/");
+        }
       }
     }
     cargaRumi(); // Llama a la función de carga del Rumi al montar el componente

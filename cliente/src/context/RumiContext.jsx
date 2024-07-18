@@ -7,6 +7,7 @@ import {
   actualizarRumiRequest,
 } from "../api/rumi";
 
+import { useAuth } from "../context/authContext";
 // Se crea un contexto de React para manejar los rumis
 const RumiContext = createContext();
 
