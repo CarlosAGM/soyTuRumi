@@ -75,6 +75,16 @@ function DesarrolladoresPages() {
               class="text-black"
             ></ion-icon>
           </a>
+          <a
+            href=" https://www.linkedin.com/in/maximiliano-valdebenito-6b1491293/"
+            target="_blank"
+          >
+            <ion-icon
+              name="logo-linkedin"
+              size="large"
+              class="text-blue-900"
+            ></ion-icon>
+          </a>
         </CardFooter>
       </Card>
     </div>
