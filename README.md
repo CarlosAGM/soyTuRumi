@@ -146,6 +146,11 @@ $npm run dev
 
 - **Cors:** Middleware para Express que habilita el intercambio de recursos entre diferentes dominios, útil para evitar problemas de seguridad en las solicitudes AJAX.
 
+## Considerar 🛠️
+
+- Al instalar dependecia ejecutar npm audit fix
+- En el archivo .env MONGODB_URI = mongodb://localhost/soyturumi en caso de no funcionar utilzar la siguiente ruta MONGODB_URI = mongodb://0.0.0.0:27017/soyturumi
+
 ## Autores ✒️
 
 - **Carlos Agüero** - _Proyecto Inicial_ - [github](https://github.com/CarlosAGM) - [linkedin](www.linkedin.com/in/carlos-agüero-marquizani-620618243)
